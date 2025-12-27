@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  /* ...other vars... */
+  --logo-accent: #0661A1;
+}
+
+
+
+:root {
+  --brand-accent: #00E5FF;
+}
+
+:root {
+  color-scheme: light;
+}
+
+::selection {
+  background: #0a1e4a;
+  color: white;
+}
+
+/* === Wizdom Animated Logo === */
+
+.logo-animated {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoGlow 8s ease-in-out infinite;
+}
+
+.logo-animated-svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 16px rgba(6, 97, 161, 0.7));
+}
+
+
+/* Outer ring – always visible */
+.circuit-ring {
+  fill: none;
+  stroke: var(--logo-accent);
+  stroke-width: 2;
+  opacity: 0.8;
+  stroke-dasharray: 6 4;
+  animation: ringPulse 6s ease-in-out infinite;
+}
+
+/* Circuit ticks / traces around the logo */
+.circuit-path {
+  fill: none;
+  stroke: var(--logo-accent);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  opacity: 0;
+  animation: circuitFlow 4s ease-in-out infinite;
+}
+
+/* keep the staggered delays... */
+.circuit-path:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+
+.circuit-path:nth-of-type(3) {
+  animation-delay: 0.8s;
+}
+
+.circuit-path:nth-of-type(4) {
+  animation-delay: 1.2s;
+}
+
+.circuit-path:nth-of-type(5) {
+  animation-delay: 1.6s;
+}
+
+.circuit-path:nth-of-type(6) {
+  animation-delay: 2.0s;
+}
+
+.circuit-path:nth-of-type(7) {
+  animation-delay: 2.4s;
+}
+
+.circuit-path:nth-of-type(8) {
+  animation-delay: 2.8s;
+}
+
+/* Subtle breathing glow on the logo container */
+@keyframes logoGlow {
+
+  0%,
+  100% {
+    transform: translateZ(0) scale(1);
+  }
+
+  40% {
+    transform: translateZ(0) scale(1.03);
+  }
+}
+
+@keyframes ringPulse {
+
+  0%,
+  100% {
+    stroke-opacity: 0.5;
+  }
+
+  40% {
+    stroke-opacity: 0.9;
+  }
+}
+
+/* Electric flow along the circuits */
+@keyframes circuitFlow {
+  0% {
+    stroke-dashoffset: 20;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: -10;
+    opacity: 0;
+  }
+}
+
+.logo-animated:hover .logo-animated-svg {
+  filter: drop-shadow(0 0 30px rgba(6, 97, 161, 0.9));
+}
+
+.logo-animated:hover .circuit-path {
+  animation-duration: 3s;
+}
