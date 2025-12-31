@@ -146,3 +146,11 @@
 .logo-animated:hover .circuit-path {
   animation-duration: 3s;
 }
+
+/* MailerLite embed: make it responsive */
+.ml-form-embedContainer,
+.ml-form-embedWrapper,
+.ml-form-embedWrapper.embedForm {
+  width: 100% !important;
+  max-width: 100% !important;
+}
