@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: npm run lint -- . --ext .ts,.tsx
+        run: npm run lint
 
       - name: Run production build
         run: npm run build
