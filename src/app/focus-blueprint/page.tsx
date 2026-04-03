@@ -151,7 +151,7 @@ export default function FocusBlueprintPage() {
                                     className="w-full rounded-2xl border border-zinc-200 bg-white shadow-sm"
                                 />
                                 <Image
-                                    src="/focus/FocusAI.png"
+                                    src="/focus/ai.png"
                                     alt="Internal AI Companion (optional)"
                                     width={2000}
                                     height={1200}
