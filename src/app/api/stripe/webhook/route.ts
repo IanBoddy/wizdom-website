@@ -3,13 +3,13 @@ import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 export const runtime = "nodejs";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 export async function POST(req: Request) {
     const sig = req.headers.get("stripe-signature");
     if (!sig) return new Response("Missing signature", { status: 400 });
 
     const rawBody = await req.text();
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
     let event: Stripe.Event;
     try {

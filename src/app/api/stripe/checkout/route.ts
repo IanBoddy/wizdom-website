@@ -3,8 +3,6 @@ import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 export const runtime = "nodejs";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 function siteUrl() {
     return process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 }
@@ -13,6 +11,8 @@ export async function POST(req: Request) {
     try {
         const { productId } = (await req.json()) as { productId: string };
         if (!productId) return new Response("Missing productId", { status: 400 });
+
+        const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
         const admin = supabaseAdmin();
         const { data: product, error } = await admin
