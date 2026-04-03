@@ -26,7 +26,7 @@ export const PRODUCTS: Product[] = [
         priceText: "£39.99",
         highlights: ["Start Here (15 minutes)", "7-day onboarding", "6 printables", "AI Companion (optional)"],
         image: {
-            src: "/focus/cover.png",
+            src: "/products/focus-blueprint.png",
             alt: "Focus Blueprint cover",
         },
     },

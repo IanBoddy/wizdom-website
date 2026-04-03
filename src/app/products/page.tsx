@@ -121,7 +121,17 @@ export default function ProductsPage() {
                                         key={p.id}
                                         className="overflow-hidden rounded-3xl border border-zinc-200 bg-white/70 shadow-sm dark:border-zinc-800 dark:bg-slate-900/60"
                                     >
-                                        <div className="relative aspect-[4/3] w-full bg-zinc-50 dark:bg-slate-950" />
+                                        <div className="relative aspect-[4/3] w-full bg-zinc-50 dark:bg-slate-950">
+                                            {p.image?.src ? (
+                                                <Image
+                                                    src={p.image.src}
+                                                    alt={p.image.alt}
+                                                    fill
+                                                    sizes="(max-width: 1024px) 100vw, 33vw"
+                                                    className="object-cover opacity-90"
+                                                />
+                                            ) : null}
+                                        </div>
 
                                         <div className="p-6">
                                             <div className="flex items-start justify-between gap-3">
