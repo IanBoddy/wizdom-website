@@ -1,18 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  /* ...other vars... */
+  color-scheme: light;
+  --body-bg: #f8fafc;
+  --body-text: #0f172a;
+  --brand-accent: #00E5FF;
   --logo-accent: #0661A1;
 }
 
-
-
-:root {
-  --brand-accent: #00E5FF;
+html {
+  background-color: var(--body-bg);
+  color: var(--body-text);
 }
 
-:root {
-  color-scheme: light;
+body {
+  min-height: 100vh;
+  background-color: var(--body-bg);
+  color: var(--body-text);
+}
+
+html.dark {
+  color-scheme: dark;
+  --body-bg: #020617;
+  --body-text: #e2e8f0;
+  --brand-accent: #38bdf8;
+  --logo-accent: #86c5ff;
+}
+
+html.dark body {
+  background-color: var(--body-bg);
+  color: var(--body-text);
+}
+
+html.dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-zinc-50,
+html.dark .bg-zinc-100 {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-zinc-200 {
+  background-color: #1e293b !important;
+}
+
+html.dark .border-zinc-200 {
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+html.dark .text-black,
+html.dark .text-zinc-900 {
+  color: #f8fafc !important;
+}
+
+html.dark .hover\:bg-zinc-50:hover {
+  background-color: #111827 !important;
+}
+
+html.dark .hover\:bg-white:hover {
+  background-color: #0f172a !important;
+}
+
+html.dark .text-zinc-800 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-zinc-800 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-zinc-700,
+html.dark .text-zinc-600,
+html.dark .text-zinc-500,
+html.dark .text-zinc-400 {
+  color: #94a3b8 !important;
 }
 
 ::selection {
@@ -20,134 +82,29 @@
   color: white;
 }
 
-/* === Wizdom Animated Logo === */
+/* =========================================================
+   Logo frame
+   ========================================================= */
 
-.logo-animated {
+.logo-frame {
   position: relative;
-  width: 90px;
-  height: 90px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  animation: logoGlow 8s ease-in-out infinite;
+  display: inline-block;
+  transform: translateZ(0);
+  overflow: hidden;
+  border-radius: 18px;
 }
 
-.logo-animated-svg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  filter: drop-shadow(0 0 16px rgba(6, 97, 161, 0.7));
+/* Logo image */
+.logo-frame__img {
+  object-fit: contain;
+  border-radius: 18px;
+  position: relative;
+  z-index: 2;
 }
 
-
-/* Outer ring – always visible */
-.circuit-ring {
-  fill: none;
-  stroke: var(--logo-accent);
-  stroke-width: 2;
-  opacity: 0.8;
-  stroke-dasharray: 6 4;
-  animation: ringPulse 6s ease-in-out infinite;
-}
-
-/* Circuit ticks / traces around the logo */
-.circuit-path {
-  fill: none;
-  stroke: var(--logo-accent);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 20;
-  stroke-dashoffset: 20;
-  opacity: 0;
-  animation: circuitFlow 4s ease-in-out infinite;
-}
-
-/* keep the staggered delays... */
-.circuit-path:nth-of-type(2) {
-  animation-delay: 0.4s;
-}
-
-.circuit-path:nth-of-type(3) {
-  animation-delay: 0.8s;
-}
-
-.circuit-path:nth-of-type(4) {
-  animation-delay: 1.2s;
-}
-
-.circuit-path:nth-of-type(5) {
-  animation-delay: 1.6s;
-}
-
-.circuit-path:nth-of-type(6) {
-  animation-delay: 2.0s;
-}
-
-.circuit-path:nth-of-type(7) {
-  animation-delay: 2.4s;
-}
-
-.circuit-path:nth-of-type(8) {
-  animation-delay: 2.8s;
-}
-
-/* Subtle breathing glow on the logo container */
-@keyframes logoGlow {
-
-  0%,
-  100% {
-    transform: translateZ(0) scale(1);
-  }
-
-  40% {
-    transform: translateZ(0) scale(1.03);
-  }
-}
-
-@keyframes ringPulse {
-
-  0%,
-  100% {
-    stroke-opacity: 0.5;
-  }
-
-  40% {
-    stroke-opacity: 0.9;
-  }
-}
-
-/* Electric flow along the circuits */
-@keyframes circuitFlow {
-  0% {
-    stroke-dashoffset: 20;
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  60% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-
-  100% {
-    stroke-dashoffset: -10;
-    opacity: 0;
-  }
-}
-
-.logo-animated:hover .logo-animated-svg {
-  filter: drop-shadow(0 0 30px rgba(6, 97, 161, 0.9));
-}
-
-.logo-animated:hover .circuit-path {
-  animation-duration: 3s;
-}
-
-/* MailerLite embed: make it responsive */
+/* =========================================================
+   MailerLite embed: responsive
+   ========================================================= */
 .ml-form-embedContainer,
 .ml-form-embedWrapper,
 .ml-form-embedWrapper.embedForm {

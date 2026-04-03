@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wizdom Enterprizes Website
+
+A Next.js website for Wizdom Enterprizes with support for product browsing, checkout, downloads, and an AI-powered help chat.
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy the example environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+3. Fill in the required secrets in `.env.local`.
+
+4. Run locally:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — start the app in development mode
+- `npm run build` — create a production build
+- `npm run start` — run the production server
+- `npm run lint` — run ESLint checks
 
-## Learn More
+## Site pages
 
-To learn more about Next.js, take a look at the following resources:
+This site includes these main pages:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` — home page
+- `/focus-blueprint` — Focus Blueprint product details and buy links
+- `/products` — product catalogue and downloads
+- `/services` — services for coaching, setup, and custom support
+- `/my-downloads` — access purchased downloads
+- `/support` — contact and help information
+- `/privacy` — privacy policy
+- `/success` — post-purchase success confirmation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
+Required variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `OPENAI_API_KEY` — OpenAI API key for `/api/chat`
+- `SUPABASE_URL` — Supabase project URL
+- `SUPABASE_SERVICE_ROLE_KEY` — Supabase service role key for admin access
+- `STRIPE_SECRET_KEY` — Stripe secret key used for checkout
+- `STRIPE_WEBHOOK_SECRET` — Stripe webhook signing secret
+- `NEXT_PUBLIC_SITE_URL` — public site origin used for checkout redirects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+This project is ready for deployment on Vercel.
+
+- Use the Vercel dashboard to connect the repository.
+- Add the same environment variables to the Vercel project settings.
+- Vercel automatically builds with `npm run build`.
+
+## Notes
+
+- `.env.example` is committed so you can share required keys without leaking secrets.
+- `.env`, `.env.local`, and `.env.*.local` are ignored by Git.
+- The `/api` routes are server-only and keep secrets on the backend.
+- Local file logging in `data/` is used only during development; Vercel logs to the platform console.

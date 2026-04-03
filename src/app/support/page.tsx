@@ -1,4 +1,3 @@
-import { Header, Footer } from "@/components/shell";
 import { Container } from "@/components/ui";
 import { LINKS } from "@/lib/links";
 

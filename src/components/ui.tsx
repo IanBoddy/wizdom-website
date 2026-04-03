@@ -21,7 +21,7 @@ export function ButtonLink({
     const styles =
         variant === "primary"
             ? "bg-black text-white hover:bg-zinc-800"
-            : "bg-white text-black ring-1 ring-zinc-200 hover:bg-zinc-50";
+            : "bg-white text-black ring-1 ring-zinc-200 hover:bg-zinc-50 dark:bg-slate-950 dark:text-zinc-100 dark:ring-zinc-700 dark:hover:bg-zinc-900";
 
     if (external) {
         return (

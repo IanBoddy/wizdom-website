@@ -1,4 +1,3 @@
-import { Header, Footer } from "@/components/shell";
 import { Container } from "@/components/ui";
 
 export default function Privacy() {

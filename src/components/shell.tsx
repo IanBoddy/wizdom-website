@@ -21,6 +21,12 @@ export function Header() {
                         <Link href="/focus-blueprint" className="hover:text-zinc-900">
                             Focus Blueprint
                         </Link>
+                        <Link href="/products" className="hover:text-zinc-900">
+                            Products
+                        </Link>
+                        <Link href="/services" className="hover:text-zinc-900">
+                            Services
+                        </Link>
                         <Link href="/support" className="hover:text-zinc-900">
                             Support
                         </Link>

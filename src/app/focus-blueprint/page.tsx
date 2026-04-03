@@ -2,6 +2,7 @@ import { ButtonLink, Container, Section, Card } from "@/components/ui";
 import { LINKS } from "@/lib/links";
 import Image from "next/image";
 import type { Metadata } from "next";
+import BuyNowButton from "@/components/BuyNowButton";
 
 export const metadata: Metadata = {
     title: "Focus Blueprint™",
@@ -26,20 +27,41 @@ export default function FocusBlueprintPage() {
                             </h1>
 
                             <p className="mt-3 text-sm font-medium text-zinc-700">
-                                A blueprint for people who want more from their time.
+                                Start clear. Execute consistently. Stop wasting days.
                             </p>
 
+                            {/* v1.3 BADGES */}
+                            <div className="mt-4 inline-flex flex-wrap items-center gap-2">
+                                <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-semibold text-zinc-800">
+                                    v1.3 update
+                                </span>
+                                <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700">
+                                    Start Here (15 minutes)
+                                </span>
+                                <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700">
+                                    7-day onboarding
+                                </span>
+                                <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700">
+                                    6 printables
+                                </span>
+                                <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700">
+                                    Optional AI Companion
+                                </span>
+                            </div>
+
                             <p className="mt-5 max-w-xl text-base leading-7 text-zinc-600">
-                                A complete personal operating system for clarity and execution. Focus Blueprint
-                                helps you stay organised, avoid wasted days and build real progress through simple,
+                                A complete personal operating system for clarity and execution. Focus Blueprint helps
+                                you stay organised, avoid wasted days and build real progress through simple,
                                 structured systems you can actually stick to.
                             </p>
 
                             <ul className="mt-6 space-y-2 text-sm text-zinc-700">
                                 <li>✅ 8 guided PDF workbooks (Modules 1–8)</li>
-                                <li>✅ Daily / Weekly / Monthly execution templates</li>
-                                <li>✅ Goals, habits, priorities, pillars, wealth system</li>
-                                <li>✅ Start Here onboarding + personal-use license</li>
+                                <li>✅ Daily / Weekly / Monthly execution system</li>
+                                <li>✅ Pillars, priorities, goals, habits + dashboards</li>
+                                <li>✅ Start Here (15-min setup) + 7-day onboarding</li>
+                                <li>✅ 6 printable one-page focus sheets</li>
+                                <li>✅ Optional AI Companion (personal-use decision support)</li>
                             </ul>
 
                             <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-700">
@@ -47,21 +69,49 @@ export default function FocusBlueprintPage() {
                                     <strong>Digital Download (ZIP):</strong> Excel spreadsheets + guided PDF workbooks.
                                 </p>
                                 <p className="mt-2">
-                                    <strong>Compatibility:</strong> Best on desktop Excel. Some templates work in Google Sheets.
+                                    <strong>Compatibility:</strong> Excel recommended (best experience). Google Sheets works for dashboards + some templates.
                                 </p>
                             </div>
 
+                            {/* AI COMPANION MICRO-BLOCK */}
+                            <div className="mt-5 rounded-2xl border border-zinc-200 bg-white p-5 text-sm text-zinc-700">
+                                <p className="font-semibold text-zinc-900">Optional AI Companion (included)</p>
+                                <p className="mt-2 text-sm text-zinc-600">
+                                    A guided decision-support layer you can use when you’re stuck, scattered, or overwhelmed.
+                                    Not an app. Not sold separately.
+                                </p>
+                                <ul className="mt-3 space-y-1 text-sm text-zinc-700">
+                                    <li>• Stuck choosing → Decision Clarity</li>
+                                    <li>• Scattered → Focus Reset</li>
+                                    <li>• Exhausted → Burnout Recovery</li>
+                                </ul>
+                            </div>
+
+                            {/* PRIMARY CTA (DIRECT) */}
                             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                                <ButtonLink href={LINKS.etsyFocusBlueprint} variant="primary">
-                                    Buy on Etsy
+                                <BuyNowButton productId="focus-blueprint">Buy now</BuyNowButton>
+                                <ButtonLink href="/my-downloads" variant="secondary" external={false}>
+                                    Downloads
                                 </ButtonLink>
-                                <ButtonLink href={LINKS.gumroadFocusBlueprint} variant="secondary">
-                                    Buy on Gumroad
+                                <ButtonLink href="/support" variant="secondary" external={false}>
+                                    Support
                                 </ButtonLink>
                             </div>
 
+                            <p className="mt-3 text-xs text-zinc-500">
+                                £39.99 • Instant download • Personal-use license.{" "}
+                                <span className="text-zinc-400">Prefer marketplaces?</span>{" "}
+                                <a className="underline" href={LINKS.etsyFocusBlueprint} target="_blank" rel="noreferrer">
+                                    Etsy
+                                </a>{" "}
+                                ·{" "}
+                                <a className="underline" href={LINKS.gumroadFocusBlueprint} target="_blank" rel="noreferrer">
+                                    Gumroad
+                                </a>
+                            </p>
+
                             <p className="mt-4 text-xs text-zinc-500">
-                                Instant download • If you get stuck, email{" "}
+                                If you get stuck, email{" "}
                                 <a className="underline break-words" href={`mailto:${LINKS.supportEmail}`}>
                                     {LINKS.supportEmail}
                                 </a>{" "}
@@ -69,14 +119,14 @@ export default function FocusBlueprintPage() {
                             </p>
                         </div>
 
-                        {/* RIGHT */}
+                        {/* RIGHT (NEW MOCKUPS) */}
                         <div>
                             <Image
-                                src="/focus-blueprint/mock-hero.png"
-                                alt="Focus Blueprint preview"
-                                width={1200}
-                                height={750}
-                                className="w-full rounded-2xl border bg-white shadow-sm"
+                                src="/focus/cover.png"
+                                alt="Focus Blueprint cover"
+                                width={1400}
+                                height={1800}
+                                className="w-full rounded-2xl border border-zinc-200 bg-white shadow-sm"
                                 priority
                             />
 
@@ -84,40 +134,41 @@ export default function FocusBlueprintPage() {
                                 Preview the system
                             </p>
 
-                            <div className="mt-3 grid gap-6 md:grid-cols-2">
+                            <div className="mt-2 grid gap-4 md:grid-cols-2">
                                 <Image
-                                    src="/focus-blueprint/FocusBlueprintMock(2).png"
-                                    alt="Preview 2"
+                                    src="/focus/stage1-2.png"
+                                    alt="Stage 1: Clarity"
                                     width={2000}
                                     height={1200}
-                                    className="w-full rounded-2xl border bg-white shadow-sm"
+                                    className="w-full rounded-2xl border border-zinc-200 bg-white shadow-sm"
+
                                 />
                                 <Image
-                                    src="/focus-blueprint/FocusBlueprintMock(3).png"
-                                    alt="Preview 3"
+                                    src="/focus/stage3.png"
+                                    alt="Stage 3: Execution Modules"
                                     width={2000}
                                     height={1200}
-                                    className="w-full rounded-2xl border bg-white shadow-sm"
+                                    className="w-full rounded-2xl border border-zinc-200 bg-white shadow-sm"
                                 />
                                 <Image
-                                    src="/focus-blueprint/FocusBlueprintMock(4).png"
-                                    alt="Preview 4"
+                                    src="/focus/FocusAI.png"
+                                    alt="Internal AI Companion (optional)"
                                     width={2000}
                                     height={1200}
-                                    className="w-full rounded-2xl border bg-white shadow-sm"
+                                    className="w-full rounded-2xl border border-zinc-200 bg-white shadow-sm"
                                 />
                                 <Image
-                                    src="/focus-blueprint/FocusBlueprintMock(1).png"
-                                    alt="Preview 1"
+                                    src="/focus/capacity.png"
+                                    alt="Capacity-aware by design"
                                     width={2000}
                                     height={1200}
-                                    className="w-full rounded-2xl border bg-white shadow-sm"
+                                    className="w-full rounded-2xl border border-zinc-200 bg-white shadow-sm"
                                 />
                             </div>
                         </div>
                     </div>
 
-                    {/* TRUST BLOCK (full width under hero so it doesn't squash) */}
+                    {/* TRUST BLOCK */}
                     <div className="mt-10">
                         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                             <div className="min-w-0 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm break-words">
@@ -129,7 +180,9 @@ export default function FocusBlueprintPage() {
                             <div className="min-w-0 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm break-words">
                                 <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Works With</p>
                                 <p className="mt-2 text-sm font-semibold text-zinc-900">Excel + Sheets</p>
-                                <p className="mt-1 text-sm text-zinc-600">Excel recommended. Dashboards are Sheets-ready.</p>
+                                <p className="mt-1 text-sm text-zinc-600">
+                                    Excel recommended. Dashboards + some templates work in Sheets.
+                                </p>
                             </div>
 
                             <div className="min-w-0 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm break-words">
@@ -143,8 +196,8 @@ export default function FocusBlueprintPage() {
                                 <p className="mt-2 text-sm font-semibold text-zinc-900">Real help</p>
                                 <p className="mt-1 text-sm text-zinc-600">
                                     Email{" "}
-                                    <a className="underline break-words" href="mailto:info@wizdomenterprizes.com">
-                                        info@wizdomenterprizes.com
+                                    <a className="underline break-words" href={`mailto:${LINKS.supportEmail}`}>
+                                        {LINKS.supportEmail}
                                     </a>
                                 </p>
                             </div>
@@ -168,16 +221,34 @@ export default function FocusBlueprintPage() {
 
                 <Section eyebrow="Included" title="What you get">
                     <div className="space-y-3 text-sm text-zinc-700">
+                        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-700">
+                            <p className="font-semibold text-zinc-900">What’s new in v1.3</p>
+                            <ul className="mt-3 space-y-1">
+                                <li>• Start Here (15-minute setup)</li>
+                                <li>• 7-Day onboarding mini-program</li>
+                                <li>• 6 printable one-page sheets</li>
+                                <li>• AI Companion (optional)</li>
+                            </ul>
+                        </div>
+
                         <ul className="grid gap-3 md:grid-cols-2">
-                            <li className="rounded-xl border border-zinc-200 bg-white p-4">✅ 8 guided PDF workbooks (Modules 1–8)</li>
-                            <li className="rounded-xl border border-zinc-200 bg-white p-4">✅ Daily / Weekly / Monthly execution system</li>
-                            <li className="rounded-xl border border-zinc-200 bg-white p-4">✅ Goals, habits, priorities, life pillars, wealth templates</li>
-                            <li className="rounded-xl border border-zinc-200 bg-white p-4">✅ Start Here guide + personal-use license</li>
+                            <li className="rounded-xl border border-zinc-200 bg-white p-4">
+                                ✅ 8 guided PDF workbooks (Modules 1–8)
+                            </li>
+                            <li className="rounded-xl border border-zinc-200 bg-white p-4">
+                                ✅ Daily / Weekly / Monthly execution system
+                            </li>
+                            <li className="rounded-xl border border-zinc-200 bg-white p-4">
+                                ✅ Pillars, priorities, goals, habits + dashboards
+                            </li>
+                            <li className="rounded-xl border border-zinc-200 bg-white p-4">
+                                ✅ Start Here + personal-use license
+                            </li>
                         </ul>
 
-                        <p><strong>Stage 1 — Core OS:</strong> pillars, priorities, goals, wealth strategy.</p>
-                        <p><strong>Stage 2 — Dashboards:</strong> life, goals, habits, weekly tracking (Sheets-ready).</p>
-                        <p><strong>Stage 3 — Execution Modules:</strong> daily/weekly/monthly + goals/habits/priority/pillars/wealth.</p>
+                        <p><strong>Stage 1 — Core OS:</strong> pillars, priorities, goals.</p>
+                        <p><strong>Stage 2 — Dashboards:</strong> weekly tracking + trend notes (Sheets-ready).</p>
+                        <p><strong>Stage 3 — Execution Modules:</strong> daily/weekly/monthly execution.</p>
                         <p><strong>Guided Workbooks (Modules 1–8):</strong> premium PDFs that walk you through the system.</p>
                         <p><strong>Start Here + License:</strong> onboarding + personal-use license included.</p>
                     </div>
@@ -185,21 +256,33 @@ export default function FocusBlueprintPage() {
 
                 <Section eyebrow="How to start" title="Choose one path">
                     <div className="grid gap-4 md:grid-cols-3">
-                        <Card title="Clarity Path">Start with Stage 1 + Module 1 (Life Pillars) + Module 7 (Priorities).</Card>
-                        <Card title="Execution Path">Start with Stage 3 Daily + Weekly modules for immediate momentum.</Card>
-                        <Card title="Tracking Path">Add Stage 2 dashboards when you want visual feedback and trends.</Card>
+                        <Card title="Clarity Path">
+                            Start with Stage 1 + Module 1 (Life Pillars) + Module 7 (Priorities).
+                        </Card>
+                        <Card title="Execution Path">
+                            Start with Stage 3 Daily + Weekly modules for immediate momentum.
+                        </Card>
+                        <Card title="Tracking Path">
+                            Add Stage 2 dashboards when you want visual feedback and trends.
+                        </Card>
                     </div>
                 </Section>
 
                 <Section eyebrow="FAQ" title="Quick answers">
                     <div className="space-y-4">
                         <details className="rounded-2xl border border-zinc-200 p-5">
-                            <summary className="cursor-pointer text-sm font-semibold">Do I have to use everything?</summary>
-                            <p className="mt-3 text-sm text-zinc-600">No. Focus Blueprint is modular. Use only what you need.</p>
+                            <summary className="cursor-pointer text-sm font-semibold">
+                                Do I have to use everything?
+                            </summary>
+                            <p className="mt-3 text-sm text-zinc-600">
+                                No. Focus Blueprint is modular. Use only what you need.
+                            </p>
                         </details>
 
                         <details className="rounded-2xl border border-zinc-200 p-5">
-                            <summary className="cursor-pointer text-sm font-semibold">What do I need to run it?</summary>
+                            <summary className="cursor-pointer text-sm font-semibold">
+                                What do I need to run it?
+                            </summary>
                             <p className="mt-3 text-sm text-zinc-600">
                                 Excel is recommended. Dashboards are designed for Google Sheets. PDFs open in any reader.
                             </p>
@@ -218,7 +301,7 @@ export default function FocusBlueprintPage() {
                     </div>
                 </Section>
 
-                {/* MICRO FREEBIE (MailerLite embed lives here) */}
+                {/* MICRO FREEBIE */}
                 <Section eyebrow="Not ready yet?" title="Get the free Focus micro-freebie">
                     <div className="grid gap-6 md:grid-cols-[2fr,1.5fr] md:items-start">
                         <div className="space-y-3 text-sm text-zinc-700">
@@ -245,16 +328,25 @@ export default function FocusBlueprintPage() {
                     <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
                         <h3 className="text-base font-semibold">Ready?</h3>
                         <p className="mt-2 text-sm text-zinc-600">
-                            Download instantly and start with the Start Here guide.
+                            Download instantly. Start in ~15 minutes. Build momentum this week.
                         </p>
                         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                            <ButtonLink href={LINKS.etsyFocusBlueprint} variant="primary">
-                                Buy on Etsy
-                            </ButtonLink>
-                            <ButtonLink href={LINKS.gumroadFocusBlueprint} variant="secondary">
-                                Buy on Gumroad
+                            <BuyNowButton productId="focus-blueprint">Buy now</BuyNowButton>
+                            <ButtonLink href="/my-downloads" variant="secondary" external={false}>
+                                Downloads
                             </ButtonLink>
                         </div>
+
+                        <p className="mt-3 text-xs text-zinc-500">
+                            Prefer marketplaces?{" "}
+                            <a className="underline" href={LINKS.etsyFocusBlueprint} target="_blank" rel="noreferrer">
+                                Etsy
+                            </a>{" "}
+                            ·{" "}
+                            <a className="underline" href={LINKS.gumroadFocusBlueprint} target="_blank" rel="noreferrer">
+                                Gumroad
+                            </a>
+                        </p>
                     </div>
                 </section>
             </Container>
